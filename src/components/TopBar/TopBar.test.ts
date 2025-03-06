@@ -8,7 +8,7 @@ const router = createRouter({
   routes: [{ path: '/', component: { render: () => h('div') } }],
 });
 
-test('renders the top bar with the correct title', async () => {
+it('renders the top bar with the correct title', async () => {
   const wrapper = mount(TopBar, {
     global: {
       plugins: [router],

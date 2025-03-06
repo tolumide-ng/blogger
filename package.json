@@ -23,10 +23,8 @@
     "vue3-toastify": "^0.2.8"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/user-event": "^14.6.1",
-    "@testing-library/vue": "^8.1.0",
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "concurrently": "^9.1.2",
     "jsdom": "^26.0.0",
