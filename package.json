@@ -10,13 +10,14 @@
     "preview": "vite preview",
     "test": "vitest",
     "populate:db": "npx tsx ./src/utils/mockServer/setupDb.ts",
-    "start:backend": "json-server --watch ./src/utils/mockServer/db.json --port 3000",
+    "start:backend": "json-server ./src/utils/mockServer/db.json --port 3000",
     "generate:types": "npx openapi-typescript ./public/openapi.yaml -o ./src/types/generated/schema.d.ts",
     "start": "concurrently \"npm run dev\" \"npm run start:backend\""
   },
   "dependencies": {
     "@faker-js/faker": "^9.5.1",
     "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
     "json-server": "^1.0.0-beta.3",
     "quill": "^2.0.3",
     "vue": "^3.5.13",
