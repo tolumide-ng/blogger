@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Page } from '@/utils/type';
+import { Page } from '@/utils/types';
 import { useRouter } from 'vue-router';
 
 const props = defineProps<{ modelValue: string }>();

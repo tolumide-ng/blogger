@@ -3,12 +3,12 @@ import { onMounted, reactive, ref, watch } from 'vue';
 import Search from '../Search/Search.vue';
 import BlogTable from '../BlogTable/BlogTable.vue';
 import { useRouter } from 'vue-router';
-import { Page, PostItem, Status } from '@/utils/type';
-import { apiCall } from '../../utils/apiCall';
+import { Page, PostItem, Status } from '@/utils/types';
+import { apiCall } from '@/utils/apiCall';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
-import { useDebounce } from '../../utils/useDebounce';
-import { getFilterParams } from '../../utils/filterParams';
+import { useDebounce } from '@/utils/useDebounce';
+import { getFilterParams } from '@/utils/filterParams';
 
 type PostData = { data: PostItem[]; pendingDeletes: Set<string> };
 

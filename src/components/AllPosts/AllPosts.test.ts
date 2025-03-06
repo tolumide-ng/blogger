@@ -1,4 +1,4 @@
-import * as api from '../../utils/apiCall';
+import * as api from '@/utils/apiCall';
 import { mount } from '@vue/test-utils';
 import AllPosts from './AllPosts.vue';
 import BlogTable from '../BlogTable/BlogTable.vue';

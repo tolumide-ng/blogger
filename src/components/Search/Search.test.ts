@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { createMemoryHistory, createRouter } from 'vue-router';
 import Search from './Search.vue';
-import { Page } from '@/utils/type';
+import { Page } from '@/utils/types';
 
 const router = createRouter({
   history: createMemoryHistory(),
