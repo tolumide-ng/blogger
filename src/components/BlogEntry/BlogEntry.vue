@@ -41,6 +41,7 @@ function handleCancel() {
           class="blog__entry-input"
           name="title"
           v-model="state.title"
+          required
         />
       </div>
 
