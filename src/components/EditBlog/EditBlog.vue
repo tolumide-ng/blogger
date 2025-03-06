@@ -2,7 +2,7 @@
 import { onMounted, reactive } from 'vue';
 import BlogEntry from '../BlogEntry/BlogEntry.vue';
 import { useRoute } from 'vue-router';
-import { NoticeType, PostItem, Status } from '@/utils/types';
+import { NoticeType, PostItem, Status, Page } from '@/utils/types';
 import { apiCall } from '@/utils/apiCall';
 import Notification from '../Notification/Notification.vue';
 import { toast } from 'vue3-toastify';
@@ -62,6 +62,7 @@ onMounted(() => {
     v-model="state.data"
     :status="state.status"
     :onSubmit="onSubmit"
+    :pageName="Page.EditBlogPost"
     v-if="state.data"
   />
 

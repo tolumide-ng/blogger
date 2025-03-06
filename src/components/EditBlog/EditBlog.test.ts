@@ -71,7 +71,7 @@ describe('EditBlog', () => {
     });
   });
 
-  it('Displays an error toaster if submission fails', async () => {
+  it('Displays an success toaster if submission succeeds', async () => {
     vi.mocked(api.apiCall).mockResolvedValue(mockPost);
     const mockSuccess = vi.fn();
 

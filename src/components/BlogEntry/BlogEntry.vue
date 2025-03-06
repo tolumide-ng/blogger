@@ -13,13 +13,12 @@ type State = {
 type Props = {
   onSubmit: () => Promise<void>;
   status: Status;
+  pageName: Page;
 };
 
 const state = defineModel<State>({ required: true });
 const props = defineProps<Props>();
-const route = useRoute();
 const router = useRouter();
-const pageName = route.name;
 
 function handleCancel() {
   router.push({ name: Page.Home });

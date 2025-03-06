@@ -25,16 +25,13 @@ describe('BlogEntry', () => {
   };
 
   it('renders component correctly', async () => {
-    (route.useRoute as unknown as Mock).mockReturnValue({
-      name: Page.CreateBlogPost,
-    });
-
     const mockOnSubmit = vi.fn();
 
     const wrapper = mount(BlogEntry, {
       props: {
         onSubmit: mockOnSubmit,
         status: Status.Rest,
+        pageName: Page.CreateBlogPost,
         modelValue,
       },
       global: {
@@ -54,10 +51,6 @@ describe('BlogEntry', () => {
   });
 
   it('Renders the Blog Entry in Edit Mode', async () => {
-    (route.useRoute as unknown as Mock).mockReturnValue({
-      name: Page.EditBlogPost,
-    });
-
     const mockOnSubmit = vi.fn();
 
     const wrapper = mount(BlogEntry, {
@@ -65,6 +58,7 @@ describe('BlogEntry', () => {
         onSubmit: mockOnSubmit,
         status: Status.Rest,
         modelValue,
+        pageName: Page.EditBlogPost,
       },
       global: {
         stubs: {
@@ -80,15 +74,12 @@ describe('BlogEntry', () => {
     expect(mockOnSubmit).toHaveBeenCalled();
   });
 
-  it('disables submit button when status is loading', async () => {
-    (route.useRoute as unknown as Mock).mockReturnValue({
-      name: Page.EditBlogPost,
-    });
-
+  it('disables submit button when status is loading', () => {
     const wrapper = mount(BlogEntry, {
       props: {
         onSubmit: vi.fn(),
         status: Status.Loading,
+        pageName: Page.EditBlogPost,
         modelValue,
       },
       global: {
@@ -105,10 +96,6 @@ describe('BlogEntry', () => {
   it('navigates to home when cancel button is clicked', async () => {
     const mockRouterPush = vi.fn();
 
-    (route.useRoute as unknown as Mock).mockReturnValue({
-      name: Page.EditBlogPost,
-    });
-
     (route.useRouter as unknown as Mock).mockReturnValue({
       push: mockRouterPush,
     });
@@ -117,6 +104,7 @@ describe('BlogEntry', () => {
       props: {
         onSubmit: vi.fn(),
         status: Status.Loading,
+        pageName: Page.EditBlogPost,
         modelValue,
       },
       global: {
