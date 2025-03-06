@@ -40,6 +40,9 @@ async function deleteBlogPost(ids: Array<string>) {
     const params = ids.length > 1 ? { ids } : {};
     await apiCall({ path, method: 'DELETE', params });
     posts.data = posts.data.filter((post: PostItem) => !ids.includes(post.id));
+    toast.success('Blog Post deleted successfully', {
+      autoClose: 1000,
+    });
   } catch (error) {
     toast.error('Error Deleting post, please try again later', {
       autoClose: 1000,
