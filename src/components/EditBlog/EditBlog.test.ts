@@ -60,8 +60,6 @@ describe('EditBlog', () => {
     const wrapper = mount(EditBlog, { props: {} });
     await flushPromises();
 
-    console.log(wrapper.html());
-
     expect(wrapper.text()).toContain('Error Loading BlogPost');
     expect(wrapper.findComponent(Notification).props()).toEqual({
       type: 'error',

@@ -4,7 +4,6 @@ export type PostItem = {
   id: string;
   author: string;
   post: string;
-  image?: string;
 };
 
 export enum Status {

@@ -3,7 +3,6 @@ import { Mock } from 'vitest';
 import * as api from '@/utils/apiCall';
 import CreateBlog from './CreateBlog.vue';
 import { flushPromises, mount } from '@vue/test-utils';
-import Notification from '../Notification/Notification.vue';
 import BlogEntry from '../BlogEntry/BlogEntry.vue';
 import * as toaster from 'vue3-toastify';
 import { Page } from '@/utils/types';

@@ -3,12 +3,13 @@ import { onMounted, reactive, ref, watch } from 'vue';
 import Search from '../Search/Search.vue';
 import BlogTable from '../BlogTable/BlogTable.vue';
 import { useRouter } from 'vue-router';
-import { Page, PostItem, Status } from '@/utils/types';
+import { NoticeType, Page, PostItem, Status } from '@/utils/types';
 import { apiCall } from '@/utils/apiCall';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import { useDebounce } from '@/utils/useDebounce';
 import { getFilterParams } from '@/utils/filterParams';
+import Notification from '../Notification/Notification.vue';
 
 type PostData = { data: PostItem[]; pendingDeletes: Set<string> };
 
@@ -90,10 +91,18 @@ watch(debouncedFilter, (newValue) => {
       :tooltipAction="tooltipActions"
       :onEditOrDelete="onEditOrDelete"
       :pendingDeletes="Array.from(posts.pendingDeletes)"
+      v-if="status === Status.Success && posts.data.length"
     />
-    <p class="posts__nomatch" v-if="filterKey && !posts.data.length">
+    <p class="posts__nomatch" v-if="filterKey && !posts.data?.length">
       Could not find any matches for **{{ filterKey }}**
     </p>
+
+    <Notification
+      :type="NoticeType.Error"
+      title="Error Loading BlogPosts"
+      message="Could not load blog posts, please try again later"
+      v-if="!filterKey && status === Status.Error && !posts.data?.length"
+    />
   </article>
 </template>
 <style lang="css" scoped>
